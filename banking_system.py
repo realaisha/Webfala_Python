@@ -22,77 +22,81 @@ class Bank_Account:
         else:
             print("Insufficient funds")
 
-    def display_balance(self):
+     def display_balance(self):
         print(f"Account {self.account_number} balance: #{self.account_balance}")
 
+account4 = Bank_Account(123456789, 10000)
+print (account4)
+account4.deposit(5000)
 
-class Banking_system:
-    def __init__(self):
-        self.accounts = {}
 
-    def create_account(self, account_number):
-        if account_number not in self.accounts:
-            self.accounts[account_number] = Bank_Account(account_number)
-            print(f"Account {account_number} created successfully")
-        else:
-            print("Account already exists")
+# class Banking_system:
+#     def __init__(self):
+#         self.accounts = {}
 
-    def get_account(self, account_number):
-        if account_number in self.accounts:
-            return self.accounts[account_number]
-        else:
-            print("Account not found")
-            return None
-def menu():
-    bank = Banking_system()
+#     def create_account(self, account_number):
+#         if account_number not in self.accounts:
+#             self.accounts[account_number] = Bank_Account(account_number)
+#             print(f"Account {account_number} created successfully")
+#         else:
+#             print("Account already exists")
 
-    while True:
-        print("\n1. Create Account")
-        print("2. Deposit")
-        print("3. Withdraw")
-        print("4. Transfer")
-        print("5. View Balance")
-        print("6. Exit")
-        choice = input("Enter your choice: ")
+#     def get_account(self, account_number):
+#         if account_number in self.accounts:
+#             return self.accounts[account_number]
+#         else:
+#             print("Account not found")
+#             return None
+# def menu():
+#     bank = Banking_system()
 
-        if choice == '1':
-            account_number = input("Enter account number: ")
-            bank.create_account(account_number)
+#     while True:
+#         print("\n1. Create Account")
+#         print("2. Deposit")
+#         print("3. Withdraw")
+#         print("4. Transfer")
+#         print("5. View Balance")
+#         print("6. Exit")
+#         choice = input("Enter your choice: ")
 
-        elif choice == '2':
-            account_number = input("Enter account number: ")
-            amount = float(input("Enter amount to deposit: "))
-            account = bank.get_account(account_number)
-            if account:
-                account.deposit(amount)
+#         if choice == '1':
+#             account_number = input("Enter account number: ")
+#             bank.create_account(account_number)
 
-        elif choice == '3':
-            account_number = input("Enter account number: ")
-            amount = float(input("Enter amount to withdraw: "))
-            account = bank.get_account(account_number)
-            if account:
-                account.withdraw(amount)
+#         elif choice == '2':
+#             account_number = input("Enter account number: ")
+#             amount = float(input("Enter amount to deposit: "))
+#             account = bank.get_account(account_number)
+#             if account:
+#                 account.deposit(amount)
 
-        elif choice == '4':
-            from_account = input("Enter your account number: ")
-            to_account = input("Enter recipient's account number: ")
-            amount = float(input("Enter amount to transfer: "))
-            sender = bank.get_account(from_account)
-            recipient = bank.get_account(to_account)
-            if sender and recipient:
-                sender.transfer(recipient, amount)
+#         elif choice == '3':
+#             account_number = input("Enter account number: ")
+#             amount = float(input("Enter amount to withdraw: "))
+#             account = bank.get_account(account_number)
+#             if account:
+#                 account.withdraw(amount)
 
-        elif choice == '5':
-            account_number = input("Enter account number: ")
-            account = bank.get_account(account_number)
-            if account:
-                account.display_balance()
+#         elif choice == '4':
+#             from_account = input("Enter your account number: ")
+#             to_account = input("Enter recipient's account number: ")
+#             amount = float(input("Enter amount to transfer: "))
+#             sender = bank.get_account(from_account)
+#             recipient = bank.get_account(to_account)
+#             if sender and recipient:
+#                 sender.transfer(recipient, amount)
 
-        elif choice == '6':
-            print("Exiting...")
-            break
+#         elif choice == '5':
+#             account_number = input("Enter account number: ")
+#             account = bank.get_account(account_number)
+#             if account:
+#                 account.display_balance()
 
-        else:
-            print("Error")
+#         elif choice == '6':
+#             print("Exiting...")
+#             break
+
+#         else:
+#             print("Error")
 
 
